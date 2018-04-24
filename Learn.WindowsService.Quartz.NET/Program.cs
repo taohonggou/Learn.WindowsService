@@ -5,6 +5,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", ConfigFileExtension = "config", Watch = true)]
 namespace Learn.WindowsService.Quartz.NET
 {
     static class Program
@@ -17,7 +18,7 @@ namespace Learn.WindowsService.Quartz.NET
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new WriteLogService()
             };
             ServiceBase.Run(ServicesToRun);
         }
